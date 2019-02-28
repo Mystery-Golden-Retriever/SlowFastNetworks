@@ -29,23 +29,23 @@ def split_train_test(data_dir):
                             os.getcwd()+'\\train\\'+train_list.replace('/', '\\'))
     
     
-    os.mkdir(os.getcwd()+'\\test')
+    os.mkdir(os.getcwd()+'\\validation')
     for i in range(3):
-        with open(split_dir+'\\testlist0'+str(i+1)+'.txt') as f:
-            test_list = f.readline()
-            test_list = test_list[:-1]
-            if not os.path.exists(os.getcwd()+'\\test\\'+test_list.split('/')[0]):
-                os.mkdir(os.getcwd()+'\\test\\'+test_list.split('/')[0])
-            shutil.copy(os.getcwd()+'\\'+origin_dir+'\\'+test_list.replace('/', '\\'),\
-                        os.getcwd()+'\\train\\'+test_list.replace('/', '\\'))
+        with open(split_dir+'\\validationlist0'+str(i+1)+'.txt') as f:
+            validation_list = f.readline()
+            validation_list = validation_list[:-1]
+            if not os.path.exists(os.getcwd()+'\\validation\\'+validation_list.split('/')[0]):
+                os.mkdir(os.getcwd()+'\\validation\\'+validation_list.split('/')[0])
+            shutil.copy(os.getcwd()+'\\'+origin_dir+'\\'+validation_list.replace('/', '\\'),\
+                        os.getcwd()+'\\train\\'+validation_list.replace('/', '\\'))
             
-            while test_list:
-                test_list = f.readline()
-                test_list = test_list[:-1]
-                if not os.path.exists(os.getcwd()+'\\test\\'+test_list.split('/')[0]):
-                    os.mkdir(os.getcwd()+'\\test\\'+test_list.split('/')[0])
-                shutil.copy(os.getcwd()+'\\'+origin_dir+'\\'+test_list.replace('/', '\\'),\
-                            os.getcwd()+'\\test\\'+test_list.replace('/', '\\'))
+            while validation_list:
+                validation_list = f.readline()
+                validation_list = validation_list[:-1]
+                if not os.path.exists(os.getcwd()+'\\validation\\'+validation_list.split('/')[0]):
+                    os.mkdir(os.getcwd()+'\\validation\\'+validation_list.split('/')[0])
+                shutil.copy(os.getcwd()+'\\'+origin_dir+'\\'+validation_list.replace('/', '\\'),\
+                            os.getcwd()+'\\validation\\'+validation_list.replace('/', '\\'))
     
         
 
