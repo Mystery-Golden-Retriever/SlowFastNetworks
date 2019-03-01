@@ -22,6 +22,8 @@ def split_train_test(data_dir):
             
             while train_list:
                 train_list = f.readline()
+                if train_list == '':
+                    break
                 train_list = train_list[:train_list.find('.avi')+4]
                 if not os.path.exists(os.getcwd()+'\\train\\'+train_list.split('/')[0]):
                     os.mkdir(os.getcwd()+'\\train\\'+train_list.split('/')[0])
@@ -41,6 +43,8 @@ def split_train_test(data_dir):
             
             while validation_list:
                 validation_list = f.readline()
+                if validation_list == '':
+                    break
                 validation_list = validation_list[:-1]
                 if not os.path.exists(os.getcwd()+'\\validation\\'+validation_list.split('/')[0]):
                     os.mkdir(os.getcwd()+'\\validation\\'+validation_list.split('/')[0])
